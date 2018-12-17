@@ -8,7 +8,7 @@
 </style>
 <div class="card uper">
   <div class="card-header">
-    Adicionar cliente
+    <h3>Adicionar cliente<h3>
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -23,28 +23,31 @@
       <form method="post" action="{{ route('clientes.store') }}">
           <div class="form-group">
               @csrf
-              <label for="name">Nome do cliente:</label>
+              <label for="no_cliente">Nome do cliente:</label>
               <input type="text" class="form-control" name="no_cliente"/>
           </div>
           <div class="form-group">
-              <label for="price">CPF:</label>
+              <label for="cpf">CPF:</label>
               <input type="text" class="form-control" name="cpf"/>
           </div>
           <div class="form-group">
-              <label for="quantity">RG:</label>
+              <label for="rg">RG:</label>
               <input type="text" class="form-control" name="rg"/>
           </div>
           <div class="form-group">
-              <label for="quantity">Data de Nascimento:</label>
-              <input type="text" class="form-control" name="data_nascimento"/>
+              <label for="data_nascimento">Data de Nascimento:</label>
+              <input type="date" class="form-control" name="data_nascimento"/>
           </div>
           <div class="form-group">
-              <label for="quantity">Telefone:</label>
-              <input type="text" class="form-control" name="telefone"/>
+              <label for="telefone">Telefone:</label>
+              <input type="phone" class="form-control" name="telefone"/>
           </div>
           <div class="form-group">
-              <label for="quantity">Local de Nascimento:</label>
-              <input type="text" class="form-control" name="local_nascimento"/>
+            <form>
+              <label for="local_nascimento">Local de Nascimento:</label><br>
+              <input type="radio" name="BA" value="BA" checked>BA<br>
+              <input type="radio" name="SP" value="SP">SP
+            </form>
           </div>
           <button type="submit" class="btn btn-primary">Adicionar</button>
       </form>

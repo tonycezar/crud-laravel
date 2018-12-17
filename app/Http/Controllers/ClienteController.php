@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cliente;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -13,7 +14,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = cliente::orderBy('created_at','no_cliente')->paginate(10);
+        // $cliente = cliente::all();
+        return view('clientes.index', compact('clientes') );
     }
 
     /**
@@ -23,8 +26,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
-    }
+        return view('clientes.create');    }
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +36,16 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new Cliente([
+        'no_cliente'=> $request->get('no_cliente'),
+        'cpf' => $request->get('cpf'),
+        'rg' => $request->get('rg'),
+        'data_nascimento' => $request->get('data_nascimento'),
+        'telefone' => $request->get('telefone'),
+        'local_nascimento' => $request->get('local_nascimento')
+        ]);
+        $cliente->save();
+        return redirect('/clientes')->with('success', 'Cliente cadastrado com sucesso!');
     }
 
     /**
