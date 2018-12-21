@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <style>
@@ -34,18 +34,6 @@
         <div class="form-group">
           <label for="senha">RG:</label>
           <input type="text" class="form-control" name="rg" value={{ $cliente->rg }} />
-        </div>
-        <div class="form-group">
-          <label for="senha">Data/hora de cadastro:</label>
-          <input type="text" class="form-control" name="create_at" value={{ $cliente->create_at }} />
-        </div>
-        <div class="form-group">
-          <label for="senha">Data/hora de atualização:</label>
-          <input type="text" class="form-control" name="update_at" value={{ $cliente->update_at }} />
-        </div>
-        <div class="form-group">
-          <label for="senha">Login do usuário cadastrante:</label>
-          <input type="text" class="form-control" name="no_usuario" value={{ $cliente->no_usuario }} />
         </div>
         <div class="form-group">
           <label for="senha">Data de Nascimento:</label>

@@ -14,7 +14,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = cliente::orderBy('created_at','no_cliente')->paginate(10);
+        $clientes = Cliente::orderBy('created_at','no_cliente')->paginate(10);
         // $cliente = cliente::all();
         return view('clientes.index', compact('clientes') );
     }
@@ -67,7 +67,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+        return view('clientes.edit', compact ('cliente'));
     }
 
     /**
@@ -90,6 +91,8 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $clientes = Cliente::findOrFail($id);
+        $clientes->delete();
+        return redirect()->route('clientes.index')->with('success','Usuario desativado com sucesso!');
     }
 }

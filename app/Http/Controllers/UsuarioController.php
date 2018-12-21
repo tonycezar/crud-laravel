@@ -13,7 +13,7 @@ class UsuarioController extends Controller
     public function login() {
 
 		/* Pega o usuário e senha preenchidos no formulário de login da View */
-		$usuario = $_POST['usuario'];
+		$usuario = $_POST['no_usuario'];
 		$senha = $_POST['senha'];
 
 		/* Encaminha os dados a Model para que seja realizado a validação */

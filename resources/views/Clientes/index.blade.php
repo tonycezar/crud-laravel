@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <style>
@@ -16,9 +16,16 @@
     <thead>
         <tr>
           <td>ID</td>
-          <td>|Nome do Cliente</td>
-          <td>E-mail</td>
-          <td>Senha armazenada</td>
+          <td>Nome do Cliente</td>
+          <td>CPF</td>
+          <td>RG</td>
+          <td>Data da criação</td>
+          <td>Data da atualização</td>
+          <!-- <td>Usuário responsável pelo cadastro</td>
+          <td>Usuário responsável pela atualização</td> -->
+          <td>Data de Nascimento</td>
+          <td>Telefone</td>
+          <td>Local de Nascimento</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
@@ -30,8 +37,8 @@
             <td>{{$cliente->rg}}</td>
             <td>{{$cliente->create_at}}</td>
             <td>{{$cliente->update_at}}</td>
-            <td>{{$cliente->no_usuario.create}}</td>
-            <td>{{$cliente->no_usuario.update}}</td>
+            <!-- <td>{{$cliente->no_usuario.create}}</td>
+            <td>{{$cliente->no_usuario.update}}</td> -->
             <td>{{$cliente->data_nascimento}}</td>
             <td>{{$cliente->telefone}}</td>
             <td>{{$cliente->local_nascimento}}</td>
